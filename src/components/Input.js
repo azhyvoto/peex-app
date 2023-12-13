@@ -38,8 +38,8 @@ const Input = () => {
           return response.json();
         })
         .then((data) => {
-          setLat(data[0].lat);
-          setLon(data[0].lon);
+          setLat(data[0]?.lat);
+          setLon(data[0]?.lon);
         });
     }
   }, [city]);
