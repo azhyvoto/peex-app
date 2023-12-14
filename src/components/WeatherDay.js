@@ -12,7 +12,7 @@ const WeatherDay = () => {
   };
 
   return (
-    <Box marginTop={'1vh'}>
+    <Box marginTop={'1vh'} data-testid="weather-day">
       <List>
         {dataWeather.daily.map((item, index) => (
           <ListItem key={index}>

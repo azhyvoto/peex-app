@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 
 const WeatherTime = () => {
   const cityData = useSelector((state) => state.city.city);
-  console.log(cityData, 'cityData');
 
   return (
     <Box
+      data-testid="weather-time"
       display="flex"
       marginTop={2}
       marginBottom={2}
