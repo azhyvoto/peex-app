@@ -8,7 +8,7 @@ const Weather = () => {
   };
 
   return (
-    <div style={root}>
+    <div data-testid="input-component" style={root}>
       <Input />
     </div>
   );
