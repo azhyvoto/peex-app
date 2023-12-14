@@ -27,8 +27,6 @@ const CardComponent = ({ cityName, description, temp }) => {
 
   const weatherIcon = useSelector((state) => state.city.weatherIcon);
 
-  const largeScreen = window.matchMedia('(min-width: 768px)').matches;
-
   return (
     <Box display="flex" justifyContent="center">
       <Card
@@ -44,7 +42,7 @@ const CardComponent = ({ cityName, description, temp }) => {
         onClick={() => handleClickCard()}>
         <CardContent>
           <Box display="flex" justifyContent="space-between">
-            <Box width={largeScreen ? null : '225px'}>
+            <Box>
               <Typography textTransform="capitalize" fontSize={25}>
                 {cityName}
               </Typography>
