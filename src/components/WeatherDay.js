@@ -11,17 +11,13 @@ const WeatherDay = () => {
     weekday: 'long'
   };
 
-  const largeScreen = window.matchMedia('(min-width: 768px)').matches;
-
   return (
-    <Box marginTop={!largeScreen ? '3vh' : '1vh'}>
+    <Box marginTop={'1vh'}>
       <List>
         {dataWeather.daily.map((item, index) => (
           <ListItem key={index}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Box
-                marginLeft={!largeScreen ? '10px' : '50px'}
-                width={!largeScreen ? '140px' : '30vw'}>
+              <Box marginLeft={'50px'} width={'30vw'}>
                 <ListItemText
                   primary={new Date(dataWeather.daily[index].dt * 1000).toLocaleDateString(
                     'en',
@@ -29,7 +25,7 @@ const WeatherDay = () => {
                   )}
                 />
               </Box>
-              <Box width={!largeScreen ? '130px' : '50vw'}>
+              <Box width={'50vw'}>
                 <img
                   style={{ height: '80px' }}
                   src={`http://openweathermap.org/img/wn/${dataWeather.daily[index].weather[0].icon}@2x.png`}
