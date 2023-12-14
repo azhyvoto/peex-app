@@ -1,51 +1,60 @@
-// import { render, screen } from '@testing-library/react';
-// import { Provider } from 'react-redux';
-// import configureStore from 'redux-mock-store';
-// import CityPage from './CityPage';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import CityPage from './CityPage';
+import { mockData } from '../redux/mockData.js';
+import { BrowserRouter } from 'react-router-dom';
 
-// // Mock Redux store
-// const mockStore = configureStore([]);
+const mockStore = configureStore([]);
 
-// test('renders CityPage component with expected content', () => {
-//   // Mock data for the Redux store
-//   const mockCity = {
-//     city: {
-//       current: {
-//         temp: 25,
-//         weather: [{ description: 'Sunny' }]
-//       }
-//     },
-//     cityName: 'MockCity'
-//   };
+describe('CityPage component', () => {
+  const mockCity = {
+    city: {
+      current: mockData.current,
+      minutely: mockData.minutely,
+      hourly: mockData.hourly,
+      daily: mockData.daily
+    },
+    cityName: 'London'
+  };
 
-//   const store = mockStore({ city: mockCity });
+  const store = mockStore({ city: mockCity });
 
-//   render(
-//     <Provider store={store}>
-//       <CityPage />
-//     </Provider>
-//   );
+  test('renders CityPage component with expected content', () => {
+    const { getByText } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <CityPage />
+        </Provider>
+      </BrowserRouter>
+    );
 
-//   // Check if the city name is rendered
-//   const cityNameElement = screen.getByText(/MockCity/i);
-//   expect(cityNameElement).toBeInTheDocument();
+    const cityNameElement = getByText(/London/i);
+    expect(cityNameElement).toBeInTheDocument();
 
-//   // Check if the weather description is rendered
-//   const weatherDescriptionElement = screen.getByText(/Sunny/i);
-//   expect(weatherDescriptionElement).toBeInTheDocument();
+    const weatherDescriptionElement = getByText(/overcast clouds/i);
+    expect(weatherDescriptionElement).toBeInTheDocument();
 
-//   // Check if the temperature is rendered
-//   const temperatureElement = screen.getByText(/25°/i);
-//   expect(temperatureElement).toBeInTheDocument();
+    const temperatureElement = getByText(/25°/i);
+    expect(temperatureElement).toBeInTheDocument();
+  });
 
-//   // Check if WeatherTime and WeatherDay components are rendered
-//   const weatherTimeComponent = screen.getByTestId('weather-time');
-//   expect(weatherTimeComponent).toBeInTheDocument();
+  test('render components check', () => {
+    const { getByTestId } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <CityPage />
+        </Provider>
+      </BrowserRouter>
+    );
 
-//   const weatherDayComponent = screen.getByTestId('weather-day');
-//   expect(weatherDayComponent).toBeInTheDocument();
-// });
+    const weatherTimeComponent = getByTestId('weather-time');
+    expect(weatherTimeComponent).toBeInTheDocument();
 
-test('should first', () => {
-  expect(true).toBe(true);
+    const weatherDayComponent = getByTestId('weather-day');
+    expect(weatherDayComponent).toBeInTheDocument();
+
+    const cityPageComponent = getByTestId('city-page');
+    expect(cityPageComponent).toBeInTheDocument();
+  });
 });

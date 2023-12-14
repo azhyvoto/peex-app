@@ -16,8 +16,8 @@ const CityPage = () => {
   const citySliceName = useSelector((state) => state.city.cityName);
 
   return (
-    <Box height="max-content" width="100vw" backgroundColor="#ffffff">
-      <Container maxWidth="lg" maxHeight="max-content">
+    <Box height="max-content" width="100vw" backgroundColor="#ffffff" data-testid="city-page">
+      <Container>
         <Box sx={root}>
           <Box
             sx={{
