@@ -23,6 +23,10 @@ const CardComponent = ({ cityName, description, temp }) => {
     setTimeout(() => {
       navigate(`/weather/city`);
     }, 1000);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   };
 
   const weatherIcon = useSelector((state) => state.city.weatherIcon);
@@ -74,6 +78,7 @@ const CardComponent = ({ cityName, description, temp }) => {
       </Card>
       {loading ? (
         <Box
+          data-testid="card-component-loading"
           sx={{
             position: 'absolute',
             top: '30%'
