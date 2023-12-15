@@ -98,14 +98,23 @@ const Input = () => {
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder={inputErr ? "You didn't specify the city!" : 'Check the weather'}
+            aria-label="input"
           />
           <IconButton
+            data-testid="search-button"
             type="submit"
             sx={{ p: '10px' }}
             aria-label="search"
             onClick={(e) => handleClick(e)}>
             <Tooltip title="Search">
-              {loader ? <CircularProgress sx={{ maxHeight: 24, maxWidth: 24 }} /> : <SearchIcon />}
+              {loader ? (
+                <CircularProgress
+                  data-testid="circular-progress"
+                  sx={{ maxHeight: 24, maxWidth: 24 }}
+                />
+              ) : (
+                <SearchIcon data-testid="search-icon" />
+              )}
             </Tooltip>
           </IconButton>
         </Paper>
