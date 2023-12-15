@@ -114,10 +114,10 @@ describe('WeatherDay component', () => {
     const dateElement = screen.getByText(/Thursday/i);
     expect(dateElement).toBeInTheDocument();
 
-    const weatherIconElement = screen.getAllByAltText('weatherIcon');
-    expect(weatherIconElement[0]).toBeInTheDocument();
-    expect(weatherIconElement[0].src).toContain('http://openweathermap.org/img/wn/04d@2x.png');
-    expect(weatherIconElement[0].alt).toContain('weatherIcon');
+    const weatherIconElements = screen.getAllByAltText('weatherIcon');
+    expect(weatherIconElements[0]).toBeInTheDocument();
+    expect(weatherIconElements[0].src).toContain('http://openweathermap.org/img/wn/04d@2x.png');
+    expect(weatherIconElements[0].alt).toContain('weatherIcon');
 
     const maxTempElement = screen.getByText(/7/i);
     expect(maxTempElement).toBeInTheDocument();
@@ -136,10 +136,10 @@ describe('WeatherDay component', () => {
     const dateElement = screen.getByText(/Friday/i);
     expect(dateElement).toBeInTheDocument();
 
-    const weatherIconElement = screen.getAllByAltText('weatherIcon');
-    expect(weatherIconElement[1]).toBeInTheDocument();
-    expect(weatherIconElement[1].src).toContain('http://openweathermap.org/img/wn/03d@2x.png');
-    expect(weatherIconElement[1].alt).toContain('weatherIcon');
+    const weatherIconElements = screen.getAllByAltText('weatherIcon');
+    expect(weatherIconElements[1]).toBeInTheDocument();
+    expect(weatherIconElements[1].src).toContain('http://openweathermap.org/img/wn/03d@2x.png');
+    expect(weatherIconElements[1].alt).toContain('weatherIcon');
 
     const maxTempElement = screen.getByText(/15/i);
     expect(maxTempElement).toBeInTheDocument();
