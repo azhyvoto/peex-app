@@ -1,5 +1,5 @@
-import cityReducer, { setCityRed, setCityName, getWeatherIcon } from './citySlice';
-import { mockData } from './mockData';
+import cityReducer, { setCityRed, setCityName, getWeatherIcon } from '../citySlice';
+import { mockData } from '../../__test__/mockData';
 
 describe('citySlice reducer', () => {
   it('should handle setCityRed', () => {

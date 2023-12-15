@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import CityPage from './CityPage';
-import { mockData } from '../redux/mockData.js';
 import { BrowserRouter } from 'react-router-dom';
+import CityPage from '../CityPage.js';
+import { mockData } from '../../__test__/mockData.js';
 
 const mockStore = configureStore([]);
 
