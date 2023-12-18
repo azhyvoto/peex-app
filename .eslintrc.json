@@ -12,7 +12,6 @@
   "plugins": ["react"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/prop-types": 0,
-    "prettier/prettier": "off"
+    "react/prop-types": 0
   }
 }
