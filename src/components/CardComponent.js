@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -43,7 +44,8 @@ const CardComponent = ({ cityName, description, temp }) => {
             opacity: 1
           }
         }}
-        onClick={() => handleClickCard()}>
+        onClick={() => handleClickCard()}
+      >
         <CardContent>
           <Box display="flex" justifyContent="space-between">
             <Box>
@@ -56,7 +58,8 @@ const CardComponent = ({ cityName, description, temp }) => {
                   textTransform: 'capitalize',
                   fontSize: 17
                 }}
-                color="text.secondary">
+                color="text.secondary"
+              >
                 {dateNow}
               </Typography>
               <Box display="flex" alignItems="center">
@@ -82,7 +85,8 @@ const CardComponent = ({ cityName, description, temp }) => {
           sx={{
             position: 'absolute',
             top: '30%'
-          }}>
+          }}
+        >
           <CircularProgress />
         </Box>
       ) : null}

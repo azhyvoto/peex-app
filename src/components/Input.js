@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -85,7 +86,8 @@ const Input = () => {
             '&:hover': {
               boxShadow: '1px 3px 7px 1px #ccc'
             }
-          }}>
+          }}
+        >
           <IconButton sx={{ p: '10px' }} aria-label="menu">
             <WbSunnyIcon />
           </IconButton>
@@ -105,7 +107,8 @@ const Input = () => {
             type="submit"
             sx={{ p: '10px' }}
             aria-label="search"
-            onClick={(e) => handleClick(e)}>
+            onClick={(e) => handleClick(e)}
+          >
             <Tooltip title="Search">
               {loader ? (
                 <CircularProgress

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { useSelector } from 'react-redux';
@@ -24,7 +25,8 @@ const CityPage = () => {
               display: 'flex',
               flexDirection: 'column',
               textAlign: 'center'
-            }}>
+            }}
+          >
             <Typography textTransform="capitalize" fontSize={40}>
               {citySliceName}
             </Typography>
@@ -40,7 +42,8 @@ const CityPage = () => {
                 borderTop: '1px solid #e4e4e4',
                 borderBottom: '1px solid #e4e4e4',
                 mt: '10vh'
-              }}>
+              }}
+            >
               <WeatherTime />
             </Box>
           </Box>

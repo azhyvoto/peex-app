@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -20,7 +21,8 @@ const WeatherTime = () => {
           background: 'transparent',
           height: 0
         }
-      }}>
+      }}
+    >
       <Stack direction="row" spacing={5}>
         {cityData.hourly.map((item, index) => (
           <Box key={index}>
