@@ -29,14 +29,5 @@ jobs:
       - name: npm install
         run: npm install
 
-      - name: Compile
-        run: npm run build
-
       - name: npm test
         run: npm test
-        
-      - name: Lint
-        run: npm run lint
-
-      - name: Format
-        run: npm run format-check
