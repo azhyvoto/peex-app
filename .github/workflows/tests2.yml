@@ -1,21 +1,18 @@
-name: toolkit-unit-tests
+name: unit-tests
 on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '**.md'
   pull_request:
-    paths-ignore:
-      - '**.md'
 
 jobs:
   build:
-    name: Build
+    name: Tests run
 
     strategy:
       matrix:
         runs-on: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [18.x, 16.x]
       fail-fast: false
 
     runs-on: ${{ matrix.runs-on }}
@@ -24,25 +21,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set Node.js 20.x
+      - name: Set Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20.x
+          node-version: ${{ matrix.node-version }}
 
       - name: npm install
         run: npm install
-
-      - name: Bootstrap
-        run: npm run bootstrap
 
       - name: Compile
         run: npm run build
 
       - name: npm test
-        run: npm test -- --runInBand --forceExit
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-
+        run: npm test
+        
       - name: Lint
         run: npm run lint
 
