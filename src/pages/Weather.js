@@ -7,8 +7,6 @@ const Weather = () => {
     paddingTop: '7vh'
   };
 
-  // test
-
   return (
     <div data-testid="input-component" style={root}>
       <Input />
